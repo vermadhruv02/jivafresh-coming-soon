@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+/* Same tokens as the main JivaFresh site. */
+:root {
+  --haldi: #f4b400;
+  --rajma: #5a1b2b;
+  --moong: #2e6b45;
+  --paani: #bfe4ec;
+  --steam: #f2f6f4;
+  --tadka: #e8431f;
+  --ink: #1e2a26;
+  --ink-60: #5b6863;
+  --line: #d5deda;
+  --ease-water: cubic-bezier(0.22, 0.8, 0.2, 1);
+}
+
+@theme inline {
+  --color-haldi: var(--haldi);
+  --color-rajma: var(--rajma);
+  --color-moong: var(--moong);
+  --color-paani: var(--paani);
+  --color-steam: var(--steam);
+  --color-tadka: var(--tadka);
+  --color-ink: var(--ink);
+  --color-ink-60: var(--ink-60);
+  --color-line: var(--line);
+  --font-display: var(--font-bricolage);
+  --font-body: var(--font-hind);
+}
+
+body {
+  background: var(--steam);
+  color: var(--ink);
+  font-family: var(--font-hind), sans-serif;
+  line-height: 1.6;
+}
+
+/* Display type: dry = condensed + heavy, wet = wide + medium */
+.type-dry,
+.type-wet {
+  font-family: var(--font-bricolage), sans-serif;
+  transition: font-variation-settings 1.2s var(--ease-water);
+}
+.type-dry {
+  font-variation-settings: "wdth" 75, "wght" 800;
+}
+.type-wet {
+  font-variation-settings: "wdth" 100, "wght" 500;
+}
+
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  animation: rise 1s var(--ease-water) both;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee {
+  animation: marquee 45s linear infinite;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(5%, -7%) scale(1.1);
+  }
+}
+.blob {
+  animation: drift 18s ease-in-out infinite;
+}
+
+@keyframes ping-soft {
+  75%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+.ping-soft {
+  animation: ping-soft 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Page entrance waits for the loader. */
+main:not([data-ready]) .rise {
+  animation-play-state: paused;
+}
+
+@keyframes steam-up {
+  0% {
+    transform: translateY(8px) scaleY(0.4);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10px) scaleY(1);
+    opacity: 0;
+  }
+}
+.steam-line {
+  animation: steam-up 1.4s ease-in-out infinite;
+}
+
+/* 3D photo ring: cards orbit the centre photo like a tilted plate. */
+.stage {
+  --cw: 116px;
+  --ch: 150px;
+  --r: 190px;
+  --c: 170px;
+  perspective: 1200px;
+}
+@media (min-width: 640px) {
+  .stage {
+    --cw: 150px;
+    --ch: 196px;
+    --r: 250px;
+    --c: 230px;
+  }
+}
+@media (min-width: 1024px) {
+  .stage {
+    --cw: 178px;
+    --ch: 232px;
+    --r: 300px;
+    --c: 290px;
+  }
+}
+.tilt {
+  transform-style: preserve-3d;
+  transform: rotateX(calc(-12deg + var(--my, 0) * -8deg)) rotateY(calc(var(--mx, 0) * 14deg));
+  transition: transform 0.8s var(--ease-water);
+}
+.orbit {
+  transform-style: preserve-3d;
+  animation: orbit-spin 40s linear infinite;
+}
+@keyframes orbit-spin {
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+.card {
+  width: var(--cw);
+  height: var(--ch);
+  margin: calc(var(--ch) / -2) 0 0 calc(var(--cw) / -2);
+  transform: rotateY(calc(var(--i) * 45deg)) translateZ(var(--r));
+}
+.centre {
+  width: var(--c);
+  height: var(--c);
+  margin: calc(var(--c) / -2) 0 0 calc(var(--c) / -2);
+  animation: bob 6s ease-in-out infinite;
+}
+@keyframes bob {
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise,
+  .marquee,
+  .blob,
+  .ping-soft,
+  .steam-line,
+  .orbit,
+  .centre {
+    animation: none;
+  }
+}

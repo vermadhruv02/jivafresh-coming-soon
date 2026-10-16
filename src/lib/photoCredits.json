@@ -7,13 +7,6 @@
     "source": "https://commons.wikimedia.org/wiki/File:Dal_makhani.JPG"
   },
   {
-    "key": "dal-makhani",
-    "file": "/photos/dal-makhani.jpg",
-    "author": "Miansari66",
-    "license": "CC0",
-    "source": "https://commons.wikimedia.org/wiki/File:Dal_Makhani_1.JPG"
-  },
-  {
     "key": "rajma-masala",
     "file": "/photos/rajma-masala.jpg",
     "author": "Monali.mishra",
@@ -33,33 +26,5 @@
     "author": "Rajeeb Dutta",
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:%E0%A6%96%E0%A6%BF%E0%A6%9A%E0%A7%81%E0%A6%A1%E0%A6%BC%E0%A6%BF_(Khichuri)-MA18.jpg"
-  },
-  {
-    "key": "poha",
-    "file": "/photos/poha.jpg",
-    "author": "Mdsmds0",
-    "license": "CC BY-SA 4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Poha_Light_Snack.JPG"
-  },
-  {
-    "key": "upma",
-    "file": "/photos/upma.jpg",
-    "author": "Upendra Kanda",
-    "license": "CC BY 2.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Bowl_of_delicious_upma_(6005013773).jpg"
-  },
-  {
-    "key": "veg-pulao",
-    "file": "/photos/veg-pulao.jpg",
-    "author": "Nundhaa",
-    "license": "CC BY-SA 4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Vegetable_Pulav_Zoom_In.JPG"
-  },
-  {
-    "key": "tadka-dal",
-    "file": "/photos/tadka-dal.jpg",
-    "author": "AugustineKajur",
-    "license": "CC BY-SA 4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Dal_Tadka-Delhi.jpg"
   }
 ]

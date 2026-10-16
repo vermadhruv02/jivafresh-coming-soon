@@ -15,15 +15,16 @@ const hind = Hind({
   weight: ["400", "500", "600"],
 });
 
+const TITLE = "JivaFresh · Ready-to-eat Jain meals, coming soon";
 const DESCRIPTION =
-  "JivaFresh is coming soon. Ready-to-eat dehydrated Indian meals: dal makhani, rajma, chole, khichdi, poha and more. Add hot water, wait a few minutes, eat.";
+  "JivaFresh is coming soon: ready-to-eat Jain meals with no onion, no garlic and no root vegetables. Ghar jaisa swaad. Add hot water, wait a few minutes, eat.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://jivafresh.com"),
-  title: "JivaFresh · Coming soon",
+  title: TITLE,
   description: DESCRIPTION,
-  openGraph: { siteName: "JivaFresh", locale: "en_IN", type: "website", url: "/", title: "JivaFresh · Coming soon", description: DESCRIPTION },
-  twitter: { card: "summary_large_image", title: "JivaFresh · Coming soon", description: DESCRIPTION },
+  openGraph: { siteName: "JivaFresh", locale: "en_IN", type: "website", url: "/", title: TITLE, description: DESCRIPTION },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
 };
 
 export const viewport: Viewport = { themeColor: "#f2f6f4" };
